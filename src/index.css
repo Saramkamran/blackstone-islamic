@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-navy-900 font-inter;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: #f1f5f9; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 9999px; }
+  ::-webkit-scrollbar-thumb:hover { background: #073985; }
+
+  *:focus-visible {
+    outline: 2px solid #073985;
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /* Light institutional card */
+  .gs-card {
+    @apply bg-white border border-slate-200;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .gs-card:hover {
+    border-color: #094AAB;
+    box-shadow: 0 4px 24px rgba(9, 74, 171, 0.08);
+  }
+
+  .section-pad {
+    @apply py-24 px-6 md:px-12 lg:px-24;
+  }
+
+  /* Typography */
+  .t-display {
+    @apply font-barlow font-light text-navy-900;
+    font-size: clamp(3rem, 7vw, 7rem);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+  }
+  .t-heading {
+    @apply font-barlow font-light text-navy-900;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+  }
+  .t-subheading {
+    @apply font-inter font-semibold text-navy-900;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+  }
+  .t-label {
+    @apply font-inter text-navy-600 tracking-widest2 uppercase;
+    font-size: 0.65rem;
+    font-weight: 600;
+  }
+  .t-body {
+    @apply font-inter text-slate-500 leading-relaxed;
+    font-size: 0.9rem;
+  }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-navy-900 text-white font-inter font-semibold text-xs tracking-widest2 uppercase;
+    transition: background 0.25s;
+  }
+  .btn-primary:hover { @apply bg-navy-600; }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 border border-navy-900 text-navy-900 font-inter font-semibold text-xs tracking-widest2 uppercase;
+    transition: border-color 0.25s, background 0.25s, color 0.25s;
+  }
+  .btn-ghost:hover { @apply bg-navy-900 text-white; }
+
+  /* Rule lines */
+  .rule { @apply block w-full h-px bg-slate-200; }
+  .rule-teal { @apply block h-px bg-teal; }
+  .rule-navy { @apply block h-px bg-navy-600; }
+
+  /* Service list rows */
+  .service-row {
+    @apply grid border-b border-slate-200 py-8 cursor-pointer;
+    grid-template-columns: 2.5rem 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+    transition: background 0.2s;
+  }
+  .service-row:hover { @apply bg-slate-50; }
+  .service-row:first-of-type { @apply border-t; }
+}
